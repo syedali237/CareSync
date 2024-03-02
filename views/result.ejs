@@ -4,13 +4,50 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Disease Result</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f9fa;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        color: #333;
+        margin-top: 50px;
+      }
+      h2 {
+        color: #6c757d;
+        margin-top: 20px;
+      }
+      .container {
+        margin-top: 30px;
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 50%;
+        margin: auto;
+      }
+      .result {
+        color: #198754;
+        font-weight: bold;
+        font-size: 24px;
+      }
+      .no-result {
+        color: #dc3545;
+      }
+    </style>
   </head>
   <body>
-    <h1>Disease Result</h1>
-    <% if (locals.disease && locals.disease[0] && locals.disease[0].Disease) { %>
-    <h2>Name: <%= locals.disease[0].Disease %></h2>
-    <% } else { %>
-    <h2>No disease found in Data.</h2>
-    <% } %>
+    <div class="container">
+      <h1>Disease Result</h1>
+      <% if (locals.disease && locals.disease[0] && locals.disease[0].Disease) {
+      %>
+      <h2 class="result">Name: <%= locals.disease[0].Disease %></h2>
+      <% } else { %>
+      <h2 class="no-result">No disease found in Data.</h2>
+      <% } %>
+    </div>
   </body>
 </html>
