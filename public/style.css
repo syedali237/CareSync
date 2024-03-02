@@ -4,10 +4,6 @@
     box-sizing: border-box;
     @import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap');
 }
-body {
-    overflow-x: hidden;
-}
-
 nav {
     position: fixed;
     top: 0;
@@ -616,6 +612,6 @@ footer button{
 .copy{
     height: 40px;
     width: 100vw;
-    font-size: 11px;
+    font-size: 14px;
 }
 }
