@@ -1,10 +1,10 @@
 const mongoose = require("mongoose");
+const { Schema } = mongoose; // Import Schema from mongoose
 
-const userSchema = new mongoose.Schema({
+const userSchema = new Schema({
   name: {
     type: String,
     required: true,
-    unique: true,
   },
   email: {
     type: String,
@@ -17,4 +17,7 @@ const userSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("User", userSchema);
+// Use mongoose.model() to create the model
+const User = mongoose.model("User", userSchema);
+
+module.exports = User;

@@ -3,13 +3,15 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const path = require("path");
 const fs = require("fs");
+const bcrypt = require("bcrypt");
 // const Dis = require("./models/diseaseSchema");
 const { default: mongoose } = require("mongoose");
 const { log } = require("console");
+const User = require("./models/userSchema");
 
 //Database Connextion
-mongoose.connect("mongodb://localhost:27017/Diseases").then(() => {
-  console.log("Diseases Connected Successfully");
+mongoose.connect("mongodb://localhost:27017/User").then(() => {
+  console.log("User Connected Successfully");
 });
 
 const Dis = JSON.parse(fs.readFileSync("disease.json", "utf8"));
@@ -62,7 +64,36 @@ app.post("/found", async (req, res) => {
   }
 });
 
-app.get("/", (req, res) => {
+app.get("/", async (req, res) => {
+  res.render("signup");
+});
+
+app.post("/signup/user", async (req, res) => {
+  const { name, password, email } = req.body;
+  console.log(req.body);
+  const newUser = new User({ name, password, email });
+  newUser.save();
+  res.redirect("/home");
+});
+app.get("/login", (req, res) => {
+  res.render("login.ejs"); // Assuming your login page is named login.ejs
+});
+app.post("/user/login", async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    const user = await User.findOne({ email, password });
+    if (!user) {
+      res.redirect("/");
+    } else {
+      res.redirect("/home");
+    }
+  } catch (error) {
+    console.error("Error:", error.message);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+app.get("/home", (req, res) => {
   res.render("index");
 });
 
