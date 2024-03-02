@@ -4,6 +4,10 @@
     box-sizing: border-box;
     @import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap');
 }
+body {
+    overflow-x: hidden;
+}
+
 nav {
     position: fixed;
     top: 0;
@@ -198,28 +202,6 @@ nav {
 span{
     color: rgb(21, 147, 159);
 }
-footer{
-    height: 500px;
-    width: 100vw;
-    background-color: black;
-}
-.col1{
-    height: 500px;
-    width: 100vw;
-  
-}
-.col1 ul{
-    height: 500px;
-    width: 30vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-}
-/* .col li{
-    
-} */
-
 .appointment{
     height:100vh;
     width: 100vw;
@@ -517,20 +499,123 @@ footer p:hover{
 .appointment{
     height: max-content;
     padding: 0;
+    width: 100vw;
 
 }
 .outbox{
     flex-direction: column;
+    padding: 0;
+    justify-content: space-evenly;
+    height: max-content;
+    padding-bottom: 3rem;
+    
 }
 #aph{
-    font-size: 18px;
+    font-size: 21px;
+}
+.hero1{
+    height: 20vh;
+    width: 50vw;
+    border-radius: 50%;
+    background-color: #BFCFE7;
+   
 }
 .box_img{
-    height: 300px;
-    width: 80vw;
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
 }
 
 .signup {
     width: 80vw;
+    height:65vh;
+    padding-bottom: 0rem;
+}
+.signup form{
+height: 50vh;
+}
+.signup form h1{
+    font-size: 18px;
+}
+.signup label,.signup input{
+   height: 30px;
+   font-size: 15px;
+}
+.signup button{
+    font-size: 16px;
+    height: 30px;
+}
+footer{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    height: 80vh;
+}
+footer h1{
+    font-size: 21px;
+}
+footer ul li a{
+    font-size: 13px;
+}
+footer button{
+    height: 30px;
+    width: auto;
+    padding-left: 0rem;
+    padding-right: 0rem;
+    background-color: #000000;
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 5px;
+    box-shadow: 1px 2px gray;
+}
+.coloumn1{
+    width: 30vw;
+    text-align: center;
+}
+.coloumn1 h2{
+    font-size: 14px;
+}
+.coloumn1 h3{
+    font-size: 13px;
+}
+.coloumn3{
+    width: 33vw;
+    text-align: center;
+}
+.coloumn3 h2,.coloumn2 h2{
+    font-size: 14px;
+    width: max-content;
+}
+.coloumn3 div{
+    width: 30vw;
+}
+.i,.f,.t{
+    
+    width: 200px;
+    padding-right: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+   
+
+.coloumn3 img{
+    height: 25px;
+    width: 25px;
+}
+.coloumn3 p{
+    font-size: 13px;
+    margin-top: 4px;
+}
+.coloumn2{
+    width: 30vw;
+    text-align: center;
+   
+}
+.coloumn2 button{
+    width: max-content;
+}
+.copy{
+    height: 40px;
+    width: 100vw;
+    font-size: 11px;
 }
 }
