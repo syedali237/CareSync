@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Disease Detector</title>
+    <style>
+      body {
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      form {
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+      }
+      input,
+      select {
+        height: 40px;
+        font-weight: bold;
+        font-size: 20px;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+          sans-serif;
+        width: 80%;
+        text-align: center;
+      }
+      .f1,
+      .f2 {
+        height: 500px;
+        width: 40vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+      }
+
+      form button {
+        height: 43px;
+        width: 130px;
+        border-radius: 5px;
+        background-color: green;
+        color: white;
+        font-weight: bold;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="/found" method="post" id="symptomsForm">
+      <div class="f1">
+        <input type="number" name="Age" placeholder="Enter Your Age" />
+        <select name="Fever" id="fever">
+          <option value="0">Do You Feel Fever?</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+        <select name="Cough" id="Cough">
+          <option value="0">Cough?</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+        <select name="Fatigue" id="fatigue">
+          <option value="0">Fatigue?</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+        <button type="submit">Submit</button>
+      </div>
+      <div class="f2">
+        <select name="Difficulty_Breathing" id="breathing">
+          <option value="0">Difficulty_Breathing?</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+        <select name="Gender" id="gender">
+          <option value="0">Gender?</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>
+        <select name="Blood_Pressure" id="bp">
+          <option value="0">Blood_Pressure?</option>
+          <option value="Low">Low</option>
+          <option value="Normal">Normal</option>
+          <option value="High">High</option>
+        </select>
+        <select name="Cholesterol_Level" id="cl">
+          <option value="0">Cholesterol_Level?</option>
+          <option value="Low">Low</option>
+          <option value="Normal">Normal</option>
+          <option value="High">High</option>
+        </select>
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+
+    <div id="resultContainer"></div>
+
+    <!-- <script>
+      document
+        .getElementById("symptomsForm")
+        .addEventListener("submit", async (event) => {
+          event.preventDefault(); // Prevent the default form submission behavior
+
+          // Collect symptom data
+          const formData = new FormData(event.target);
+          const formDataObject = {};
+          formData.forEach((value, key) => {
+            formDataObject[key] = value;
+          });
+
+          // Send symptom data to the server
+          try {
+            const response = await fetch("/api/disease", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(formDataObject),
+            });
+
+            if (!response.ok) {
+              throw new Error("Failed to submit symptom data");
+            }
+
+            // Handle the response from the server
+            const disease = await response.json();
+            displayDisease(disease);
+          } catch (error) {
+            console.error("Error:", error.message);
+            // Handle errors
+          }
+        });
+
+      function displayDisease(disease) {
+        const resultContainer = document.getElementById("resultContainer");
+
+        // Clear previous result
+        resultContainer.innerHTML = "";
+
+        // Display the disease information
+        if (disease) {
+          resultContainer.innerHTML = `
+                    <h2>Name: ${disease.name}</h2>
+                    <p>Symptoms: ${disease.symptoms.join(", ")}</p>
+                    <p>Treatment: ${disease.treatment}</p>
+                `;
+        } else {
+          resultContainer.innerHTML = "<p>No disease found.</p>";
+        }
+      }
+    </script> -->
+  </body>
+</html>

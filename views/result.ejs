@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Disease Result</title>
+  </head>
+  <body>
+    <h1>Disease Result</h1>
+    <% if (locals.disease && locals.disease[0] && locals.disease[0].Disease) { %>
+    <h2>Name: <%= locals.disease[0].Disease %></h2>
+    <% } else { %>
+    <h2>No disease found in Data.</h2>
+    <% } %>
+  </body>
+</html>
