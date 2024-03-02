@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 3000;
 const path = require("path");
 const fs = require("fs");
 // const Dis = require("./models/diseaseSchema");
@@ -39,7 +39,7 @@ app.post("/found", async (req, res) => {
 
     console.log(req.body);
 
-    const foundDisease = Dis.filter(disease => {
+    const foundDisease = Dis.filter((disease) => {
       return (
         disease.Fever == Fever &&
         disease.Cough == Cough &&
@@ -49,13 +49,13 @@ app.post("/found", async (req, res) => {
         disease.Difficulty_Breathing == Difficulty_Breathing &&
         disease.Blood_Pressure == Blood_Pressure &&
         disease.Cholesterol_Level == Cholesterol_Level
-      )
+      );
     });
 
     console.log(foundDisease);
 
     // Render the EJS template and pass the found disease as a parameter
-    res.render('result', { disease: foundDisease });
+    res.render("result", { disease: foundDisease });
   } catch (error) {
     console.error("Error:", error.message);
     res.status(500).json({ error: "Internal Server Error" });
