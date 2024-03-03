@@ -63,6 +63,28 @@ app.get('/findPharmacy' , (req,res) => {
   res.render('pharmacy' , {data : null});
 })
 
+app.get('/findDoctors' , (req,res) => {
+  res.render('doctors' , {data : null});
+})
+
+app.post('/doctorNearby' , async (req,res) => {
+  try {
+    const address = req.body.address;
+    const location = await getLatLong(address);
+    
+    if (location) {
+        const places = await fetchNearbyPlaces(`${location.latitude},${location.longitude}`, 'doctor');
+        res.render("doctors", { data: places });
+    } else {
+        console.log("Failed to fetch location information");
+        res.status(500).send("Failed to fetch location information");
+    }
+} catch (error) {
+    console.error('Error:', error);
+    res.status(500).send('Internal Server Error');
+}
+})
+
 app.post('/hospitalsNearby' , async (req, res) => {
   try {
       const address = req.body.address;
