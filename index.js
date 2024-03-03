@@ -64,6 +64,8 @@ app.post("/found", async (req, res) => {
   }
 });
 
+//Authentication
+
 app.get("/", async (req, res) => {
   res.render("signup");
 });

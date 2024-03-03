@@ -295,21 +295,23 @@ form {
 }
 
 footer{
-    height: 400px;
+    height: 420px;
     width: 100vw;
     background-color: black;
     padding-top: 2rem;
     padding-bottom: 2rem;
     display: flex;
+    justify-content: center;
     flex-direction: column;
     align-items: center;
 }
 footer h1{
-    color: rgb(5, 133, 133);
+    color: rgb(33, 173, 175);
     font-size: 35px;
     font-weight: bold;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    
+    margin-right: 8rem;
+    margin-bottom: 3rem;
 }
 
 footer button{
