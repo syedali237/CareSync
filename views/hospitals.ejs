@@ -1,27 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nearest Hospitals</title>
-</head>
-<body>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+      form {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      label {
+        font-weight: bold;
+      }
+
+      input[type="text"] {
+        width: 80%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+
+      button {
+        background-color: #007bff;
+        color: white;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      li {
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 20px;
+      }
+
+      li strong {
+        font-weight: bold;
+        color: #007bff;
+      }
+
+      li:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+
+      li:hover {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      @media screen and (max-width: 768px) {
+        input[type="text"] {
+          width: 80%;
+        }
+
+        button {
+          width: 80%;
+        }
+      }
+    </style>
+  </head>
+  <body>
     <h1>Nearest Hospitals</h1>
     <form action="/hospitalsNearby" method="post">
-        <label for="address">Enter Address:</label>
-        <input type="text" id="address" name="address">
-        <button type="submit">Find Hospital Nearby</button>
-    <ul>
-        <% if (data){ %>
-        <% data.forEach(hospital => { %>
-            <li>
-                <strong>Name:</strong> <%= hospital.name %><br>
-                <strong>Address:</strong> <%= hospital.vicinity %><br>
-                <strong>Rating:</strong> <%= hospital.rating %>
-            </li>
-        <% }); %>
-    </ul>
-    <% } %>
+      <label for="address">Enter Address:</label>
+      <input
+        type="text"
+        id="address"
+        name="address"
+        placeholder="Enter your address"
+      />
+      <button type="submit">Find Hospital Nearby</button>
     </form>
-</body>
+    <ul>
+      <% if (data){ %> <% data.forEach(hospital => { %>
+      <li>
+        <strong>Name:</strong> <%= hospital.name %><br />
+        <strong>Address:</strong> <%= hospital.vicinity %><br />
+        <strong>Rating:</strong> <%= hospital.rating %>
+      </li>
+      <% }); %> <% } %>
+    </ul>
+  </body>
 </html>

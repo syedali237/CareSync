@@ -2,10 +2,10 @@ import express from "express";
 import path from "path";
 import fs from "fs";
 import mongoose from "mongoose";
-import { default as OpenAI } from 'openai';
-import dotenv from 'dotenv';
+import { default as OpenAI } from "openai";
+import dotenv from "dotenv";
 import { log } from "console";
-import bodyParser from 'body-parser';
+import bodyParser from "body-parser";
 import { fetchNearbyPlaces } from "./google-map/places.js";
 import { getLatLong } from "./google-map/getLatLon.js";
 
@@ -40,7 +40,12 @@ app.use(express.static("public"));
 // Initialize OpenAI instance with your API key
 const openai = new OpenAI(process.env.OPENAI_API_KEY);
 
-let conversationHistory = [{role : 'assistant' , content: 'Ask me your doubts related to health & fitness..'}];
+let conversationHistory = [
+  {
+    role: "assistant",
+    content: "Ask me your doubts related to health & fitness..",
+  },
+];
 
 // Function to generate text based on user input
 async function generateText(userInput) {
@@ -60,69 +65,78 @@ async function generateText(userInput) {
   }
 }
 
-app.get('/findHospitals' , (req,res) => {
-  res.render('hospitals' , {data : null});
-})
+app.get("/findHospitals", (req, res) => {
+  res.render("hospitals", { data: null });
+});
 
-app.get('/findPharmacy' , (req,res) => {
-  res.render('pharmacy' , {data : null});
-})
+app.get("/findPharmacy", (req, res) => {
+  res.render("pharmacy", { data: null });
+});
 
-app.get('/findDoctors' , (req,res) => {
-  res.render('doctors' , {data : null});
-})
+app.get("/findDoctors", (req, res) => {
+  res.render("doctors", { data: null });
+});
 
-app.post('/doctorNearby' , async (req,res) => {
+app.post("/doctorNearby", async (req, res) => {
   try {
     const address = req.body.address;
     const location = await getLatLong(address);
-    
-    if (location) {
-        const places = await fetchNearbyPlaces(`${location.latitude},${location.longitude}`, 'doctor');
-        res.render("doctors", { data: places });
-    } else {
-        console.log("Failed to fetch location information");
-        res.status(500).send("Failed to fetch location information");
-    }
-} catch (error) {
-    console.error('Error:', error);
-    res.status(500).send('Internal Server Error');
-}
-})
 
-app.post('/hospitalsNearby' , async (req, res) => {
-  try {
-      const address = req.body.address;
-      const location = await getLatLong(address);
-      
-      if (location) {
-          const places = await fetchNearbyPlaces(`${location.latitude},${location.longitude}`, 'hospital');
-          res.render("hospitals", { data: places });
-      } else {
-          console.log("Failed to fetch location information");
-          res.status(500).send("Failed to fetch location information");
-      }
+    if (location) {
+      const places = await fetchNearbyPlaces(
+        `${location.latitude},${location.longitude}`,
+        "doctor"
+      );
+      res.render("doctors", { data: places });
+    } else {
+      console.log("Failed to fetch location information");
+      res.status(500).send("Failed to fetch location information");
+    }
   } catch (error) {
-      console.error('Error:', error);
-      res.status(500).send('Internal Server Error');
+    console.error("Error:", error);
+    res.status(500).send("Internal Server Error");
   }
 });
 
-app.post('/pharmaciesNearby', async (req, res) => {
+app.post("/hospitalsNearby", async (req, res) => {
   try {
-      const address = req.body.address;
-      const location = await getLatLong(address);
-      
-      if (location) {
-          const places = await fetchNearbyPlaces(`${location.latitude},${location.longitude}`, 'pharmacy');
-          res.render("pharmacy", { data: places });
-      } else {
-          console.log("Failed to fetch location information");
-          res.status(500).send("Failed to fetch location information");
-      }
+    const address = req.body.address;
+    const location = await getLatLong(address);
+
+    if (location) {
+      const places = await fetchNearbyPlaces(
+        `${location.latitude},${location.longitude}`,
+        "hospital"
+      );
+      res.render("hospitals", { data: places });
+    } else {
+      console.log("Failed to fetch location information");
+      res.status(500).send("Failed to fetch location information");
+    }
   } catch (error) {
-      console.error('Error:', error);
-      res.status(500).send('Internal Server Error');
+    console.error("Error:", error);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+app.post("/pharmaciesNearby", async (req, res) => {
+  try {
+    const address = req.body.address;
+    const location = await getLatLong(address);
+
+    if (location) {
+      const places = await fetchNearbyPlaces(
+        `${location.latitude},${location.longitude}`,
+        "pharmacy"
+      );
+      res.render("pharmacy", { data: places });
+    } else {
+      console.log("Failed to fetch location information");
+      res.status(500).send("Failed to fetch location information");
+    }
+  } catch (error) {
+    console.error("Error:", error);
+    res.status(500).send("Internal Server Error");
   }
 });
 
@@ -144,7 +158,6 @@ app.post("/messages", async (req, res) => {
       .json({ error: "An error occurred while handling the message." });
   }
 });
-
 
 // In your Express route handler for displaying the result
 app.post("/found", async (req, res) => {
@@ -179,7 +192,6 @@ app.post("/found", async (req, res) => {
 
     // Render the EJS template and pass the found disease as a parameter
     res.render("result", { disease: foundDisease });
-
   } catch (error) {
     console.error("Error:", error.message);
     res.status(500).json({ error: "Internal Server Error" });
