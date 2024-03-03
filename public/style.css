@@ -16,7 +16,7 @@ nav {
     padding-left: 1rem;
     padding-right: 1rem; /* Corrected the padding property */
     color: rgb(0, 0, 0);
-    background-color: #BFCFE7; /* Added background color */
+    background-color: #B4D4FF; /* Added background color */
     z-index: 1000; /* Added z-index to ensure the navigation bar stays on top */
 }
 
@@ -62,7 +62,7 @@ nav {
     width: auto;
     font-size: 16px;
     background-color: rgb(255, 255, 255);
-    color: #BFCFE7;
+    color: #B4D4FF;
     border-radius: 10px;
     font-weight: bold;
     padding-left: 5px;
@@ -81,6 +81,8 @@ nav {
     /* border: 4px solid rgb(18, 196, 12); */
     color: rgb(0, 0, 0);
     transition: 0.2s;
+    cursor: pointer;
+    
 }
 
 .bottom {
@@ -103,7 +105,7 @@ nav {
     height: 70vh;
     width: 40vw;
     border-radius: 50%;
-    background-color: #BFCFE7;
+    background-color: #B4D4FF;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -128,10 +130,12 @@ nav {
 .text_hero h1{
     color: rgb(250, 250, 250);
     font-size: 4rem;
+    font-family: sans-serif;
 }
 .text_hero h3{
     font-size: 23px;
     color: #eff3f0;
+    font-weight: normal;
 }
 .text_hero button{
     height: 40px;
@@ -139,17 +143,20 @@ nav {
     padding-left: 1rem;
     padding-right: 1rem;
     font-size: 23px;
-    background-color: #BFCFE7;
+    background-color: #B4D4FF;
     color: rgb(0, 0, 0);
     border-radius: 7px;
     font-weight: bold;
     border: 1px solid white;
     margin-top: 2rem;
     
+    
 }
 .text_hero button:hover{
-    background-color: #BFCFE7;
+    background-color: #B4D4FF;
     color: white;
+    cursor: pointer;
+
 }
 
 .about{
@@ -176,7 +183,7 @@ nav {
 .text1,.text2{
     height:400px;
     width: 30vw;
-    border: 5px solid #BFCFE7;
+    border: 5px solid #B4D4FF;
     text-align: center;
     border-radius:13px;
 }
@@ -184,8 +191,8 @@ nav {
          font-size: 30px;
          font-weight: bold;
          color: black;
-         background-color: #BFCFE7;
-         border-bottom: 5px solid #BFCFE7;
+         background-color: #B4D4FF;
+         border-bottom: 5px solid #B4D4FF;
          font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 .text1 p,.text2 p{
@@ -206,14 +213,14 @@ span{
     justify-content: space-evenly;
     align-items: center;
     padding-top: 2rem;
-    background-color: #BFCFE7;
+    background-color: #B4D4FF;
     padding-bottom: 2rem;
 }
 
 .signup {
     height: 80vh;
     width: 30vw;
-    /* border: 6px solid #BFCFE7; */
+    /* border: 6px solid #B4D4FF; */
     background-color: #fff;
     border-radius: 15px;
     padding-top: 2rem;
@@ -260,7 +267,7 @@ form {
     background-color: transparent;
     color: rgb(0, 0, 0);
     text-align: center;
-    border: 2px solid #BFCFE7;
+    border: 2px solid #B4D4FF;
     outline: none; 
     /*border-left: none;
     border-right: none;
@@ -275,7 +282,7 @@ form {
     font-size: 20px;
     font-weight: bold;
     font-family: sans-serif;
-    border: 2px solid #BFCFE7;
+    border: 2px solid #B4D4FF;
     background-color: rgb(255, 255, 255);
     padding-left: 1px;
     padding-right: 1rem;
@@ -283,8 +290,10 @@ form {
     margin-top: 1rem;
 }
 .signup button:hover{
-    background-color: #BFCFE7;
+    background-color: #B4D4FF;
   color: rgb(0, 0, 0);
+  cursor: pointer;
+
 }
 #aph{
     font-size: 28px;
@@ -352,6 +361,8 @@ footer ul li a:hover{
 footer button:hover{
     text-decoration: none;
     background-color: rgb(35, 29, 29);
+    cursor: pointer;
+
     
 }
 
@@ -419,7 +430,7 @@ footer button:hover{
     align-items: center;
     background-color: black;
     color: white;
-    font-weight: bold;
+    font-weight: 500;
     font-family: sans-serif;
 }
 footer h2{
@@ -464,8 +475,8 @@ footer p:hover{
     margin-bottom: 10px;
 }
 .text_hero h3{
-    font-size: 16px;
-    font-weight: 400;
+    font-size: 15px;
+    font-weight: 300;
 }
 .text_hero button{
     font-size: 17px;
@@ -515,7 +526,7 @@ footer p:hover{
     height: 20vh;
     width: 50vw;
     border-radius: 50%;
-    background-color: #BFCFE7;
+    background-color: #B4D4FF;
    
 }
 .box_img{
