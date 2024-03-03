@@ -1,121 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Home</title>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
     <style>
       body {
         margin: 0;
         padding: 0;
-        font-family: Roboto;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background: linear-gradient(120deg, #0b6118, #085933);
+        font-family: Roboto, sans-serif;
+        background: linear-gradient(120deg, #8e9eab, #eef2f3);
         height: 100vh;
-        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
 
       .center {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 29vw;
+        width: 90%;
+        max-width: 400px;
         background: white;
         border-radius: 10px;
+        padding: 40px;
+        box-sizing: border-box;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
       }
 
       .center h1 {
         text-align: center;
-        padding: 0 0 20px 0;
-        border-bottom: 1px solid silver;
+        margin-bottom: 20px;
+        color: #333; /* Changed color to a darker shade */
       }
 
-      .center form {
-        padding: 0 40px;
-        box-sizing: border-box;
-      }
-
-      form .txt_field {
+      .center form .txt_field {
         position: relative;
-        border-bottom: 2px solid #adadad;
-        margin: 30px 0;
+        margin-bottom: 30px;
       }
 
-      .txt_field input {
+      .center form .txt_field input {
         width: 100%;
-        padding: 0 5px;
-        height: 40px;
+        padding: 10px;
         font-size: 16px;
         border: none;
-        background: none;
+        border-bottom: 2px solid #adadad;
+        background: transparent;
         outline: none;
+        color: #333; /* Changed text color */
       }
 
-      .txt_field label {
+      .center form .txt_field label {
         position: absolute;
-        top: 50%;
-        left: 5px;
-        color: #adadad;
-        transform: translateY(-50%);
-        font-size: 16px;
-        pointer-events: none;
-      }
-
-      .txt_field span::before {
-        content: "";
-        position: absolute;
-        top: 40px;
+        top: 10px;
         left: 0;
-        width: 0px;
-        height: 2px;
-        background: #2691d9;
+        color: #adadad;
         transition: 0.5s;
       }
 
-      .txt_field input:focus ~ label,
-      .txt_field input:valid ~ label {
-        top: -5px;
+      .center form .txt_field input:focus ~ label,
+      .center form .txt_field input:valid ~ label {
+        top: -18px;
+        font-size: 14px;
         color: #2691d9;
       }
 
-      .txt_field input:focus ~ span::before,
-      .txt_field input:valid ~ span::before {
-        width: 100%;
-      }
-
-      .pass {
-        margin: -5px 0 20px 5px;
-        color: #a6a6a6;
-        cursor: pointer;
-      }
-
-      .pass:hover {
-        text-decoration: underline;
-      }
-
-      input[type="Submit"] {
+      input[type="submit"] {
         width: 100%;
         height: 50px;
-        border: 1px solid;
+        border: none;
         border-radius: 25px;
         font-size: 18px;
         font-weight: 700;
         cursor: pointer;
+        background: #2691d9;
+        color: #fff;
+        transition: background 0.3s, color 0.3s;
       }
 
-      input[type="Submit"]:hover {
-        background: #2691d9;
-        color: #e9f4fb;
-        transition: 0.5s;
+      input[type="submit"]:hover {
+        background: #0b4baf;
       }
 
       .signup_link {
-        margin: 30px 0;
         text-align: center;
         font-size: 16px;
         color: #666666;
+        margin-top: 20px;
       }
 
       .signup_link a {
@@ -126,35 +95,24 @@
       .signup_link a:hover {
         text-decoration: underline;
       }
-
-      .HomeAbout {
-        width: 100vw;
-        height: 25vh;
-      }
     </style>
   </head>
   <body>
-    <div class="container">
-      <div class="center">
-        <h1>Register</h1>
-        <form action="/user/login" method="POST">
-          
-          <div class="txt_field">
-            <input type="email" name="email" required />
-            <span></span>
-            <label>Email</label>
-          </div>
-          <div class="txt_field">
-            <input type="password" name="password" required />
-            <span></span>
-            <label>Password</label>
-          </div>
-
-          <input name="submit" type="Submit" value="Login" />
-         
-            </form>
-          </div>
-        </form>
+    <div class="center">
+      <h1>Login</h1>
+      <form action="/user/login" method="POST">
+        <div class="txt_field">
+          <input type="email" name="email" required />
+          <label>Email</label>
+        </div>
+        <div class="txt_field">
+          <input type="password" name="password" required />
+          <label>Password</label>
+        </div>
+        <input name="submit" type="submit" value="Login" />
+      </form>
+      <div class="signup_link">
+        Don't have an account? <a href="/">Sign Up Here</a>
       </div>
     </div>
   </body>
