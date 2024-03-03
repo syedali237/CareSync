@@ -1,15 +1,67 @@
+
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    @import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap');
+   
 }
+.dropbtn {
+    background-color: #4CAF50;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: auto;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 10px;
+    border: 4px solid #B4D4FF;
+    
+    
+
+  }
+  
+  .dropdown-content a {
+    color: rgb(249, 248, 248);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {background-color: #f1f1f1}
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  .dropdown:hover .dropbtn {
+    background-color: #73e477;
+  }
+  .dropdown form{
+    height: fit-content;
+    margin: 5vh;
+  }
+ 
 nav {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 70px;
+    width: 100vw;
+    height: 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -26,62 +78,102 @@ nav {
     height: 70px;
     display: flex;
     align-items: center;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'League Spartan', sans-serif;
 }
+
 
 .right {
     width: 60vw;
     height: 70px;
     display: flex;
     align-items: center;
-    font-family: sans-serif;
 }
 
 .right ul {
     height: 70px;
-    width: 60vw;
+    width: 85vw;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+}
+.right ul li a {
+    text-decoration: none;
+    font-size: 17px;
+    color: rgb(0, 0, 0);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 500;
+    border-bottom: 2px solid transparent; /* Initially, set border to transparent */
+    transition: border-bottom 0.3s ease; /* Add transition for smooth effect */
+}
+
+.right ul li a:hover {
+    border-bottom: 2px solid #000; /* Change border color on hover */
 }
 
 .right ul li {
     list-style: none;
 }
 
-.right ul li a {
+/* .right ul li a {
     text-decoration: none;
     font-size: 17px;
-    font-weight: bold;
     color: rgb(0, 0, 0);
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
+    font-weight: 500;
+
+   
+} */
 
 .right button {
     height: 40px;
     width: auto;
     font-size: 16px;
-    background-color: rgb(255, 255, 255);
-    color: #B4D4FF;
-    border-radius: 10px;
-    font-weight: bold;
+    /* background-color: rgb(255, 255, 255); */
+    /* color: #B4D4FF; */
+    border-radius: 5px;
+    background-color: #B4D4FF;
+    /* font-weight: bold; */
     padding-left: 5px;
     padding-right: 5px;
-    background-color: black;
+    /* background-color: black; */
+    border: none;
+    outline: none;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 500;
+    border-bottom: 2px solid transparent; /* Initially, set border to transparent */
+    transition: border-bottom 0.3s ease;
+}
+/* 
+.right ul li a{
+    position: relative;
+}
+.right ul li a::after{
+    content: '';
+    width: 0;
+    height: 2px;
+    background: #7360DF;
+    position: absolute;
+    bottom: -6px;
+    transition: width 0.3s;
+}
+.right ul li a:hover::after{
+    width: 100%;
 }
 
-.right ul li a:hover {
+/* .right ul li a:hover {
     color: rgb(0, 0, 0);
-    border-bottom: 5px solid rgb(0, 0, 0);
+    border-bottom: 2px solid rgb(0, 0, 0);
     transition: 0.2s;
-}
+} */ 
 
 .right button:hover {
-    background-color: transparent;
+    /* background-color: #a3bddf; */
     /* border: 4px solid rgb(18, 196, 12); */
     color: rgb(0, 0, 0);
     transition: 0.2s;
+    
     cursor: pointer;
+    border-bottom: 2px solid #000; 
     
 }
 
@@ -100,7 +192,9 @@ nav {
     position: relative;
     
   }
- 
+  .dropdown button{
+    width: 200px;
+  }
 .hero1 {
     height: 70vh;
     width: 40vw;
@@ -295,6 +389,15 @@ form {
   cursor: pointer;
 
 }
+#robo{
+    width: 6vw;
+    display: flex;
+    flex-direction: row;
+}
+#robo img{
+    width: 30px;
+    height: 30px;
+}
 #aph{
     font-size: 28px;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -304,7 +407,7 @@ form {
 }
 
 footer{
-    height: 420px;
+    height: 350px;
     width: 100vw;
     background-color: black;
     padding-top: 2rem;
@@ -314,14 +417,7 @@ footer{
     flex-direction: column;
     align-items: center;
 }
-footer h1{
-    color: rgb(33, 173, 175);
-    font-size: 35px;
-    font-weight: bold;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    margin-right: 8rem;
-    margin-bottom: 3rem;
-}
+
 
 footer button{
     height: 30px;
@@ -336,7 +432,7 @@ footer button{
 }
 footer ul{
     height: 300px;
-    width: 20vw;
+    width: 33vw;
     padding-left: 1rem;
     display: flex;
     flex-direction: column;
@@ -352,7 +448,7 @@ footer ul li a{
     text-decoration: none;
     color: white;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 15px;
 }
 footer ul li a:hover{
     text-decoration: underline;
@@ -367,7 +463,7 @@ footer button:hover{
 }
 
 .coll{
-    height: 350px;
+    height: 300px;
     width: 100vw;
     display: flex;
     justify-content: space-evenly;
@@ -382,6 +478,12 @@ footer button:hover{
     color: white;
     font-weight: bold;
     font-family: sans-serif;
+}
+.coloumn1 h3{
+    font-size: 15px;
+}
+.coloumn3 h2{
+    margin-right: -5rem;
 }
 .coloumn3{
     height: 200px;
@@ -415,6 +517,9 @@ footer button:hover{
     padding-top: 1rem;
 
 }
+.coloumn3 h2,.coloumn1 h2,.coloumn2 h2{
+    font-size: 20px;
+}
 .coloumn3 img:hover {
     height: 30px;
     width: 30px;
@@ -430,7 +535,7 @@ footer button:hover{
     align-items: center;
     background-color: black;
     color: white;
-    font-weight: 500;
+    font-weight: 450;
     font-family: sans-serif;
 }
 footer h2{
@@ -465,8 +570,7 @@ footer p:hover{
     .right ul{
         display: none;
     }
-    .hero{
-    }
+   
     .text_hero{
         width: 90vw;
     }
@@ -628,3 +732,38 @@ footer button{
     font-size: 14px;
 }
 }
+
+/* Keyframes animation */
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Apply animation to elements */
+.dropdown-content {
+    animation: slideIn 0.5s ease forwards;
+}
+
+/* Keyframes animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Apply animation to elements */
+.hero2,
+.about,
+.appointment {
+    animation: fadeIn 1s ease forwards;
+}
+

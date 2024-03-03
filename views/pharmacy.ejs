@@ -1,27 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nearest Pharmacies</title>
-</head>
-<body>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+        color: #333; /* Text color */
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #000; /* Heading color */
+      }
+
+      form {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      label {
+        font-weight: bold;
+        color: #000; /* Label color */
+      }
+
+      input[type="text"] {
+        width: 50vw;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #000; /* Border color */
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+
+      button {
+        background-color: #000; /* Button background color */
+        color: #fff; /* Button text color */
+        padding: 12px 24px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      li {
+        background-color: #fff; /* List item background color */
+        border: 1px solid #000; /* Border color */
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 20px;
+      }
+
+      li strong {
+        font-weight: bold;
+        color: #000; /* Strong text color */
+      }
+
+      li:nth-child(even) {
+        background-color: #f9f9f9; /* Alternate background color */
+      }
+
+      li:hover {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      @media screen and (max-width: 768px) {
+        input[type="text"] {
+          width: 80%;
+        }
+
+        button {
+          width: 80%;
+        }
+      }
+    </style>
+  </head>
+  <body>
     <h1>Nearest Pharmacies</h1>
     <form action="/pharmaciesNearby" method="post">
-        <label for="address">Enter Address:</label>
-        <input type="text" id="address" name="address">
-        <button type="submit">Find Pharmacies Nearby</button>
-    <ul>
-        <% if (data){ %>
-        <% data.forEach(pharmacy => { %>
-            <li>
-                <strong>Name:</strong> <%= pharmacy.name %><br>
-                <strong>Address:</strong> <%= pharmacy.vicinity %><br>
-                <strong>Rating:</strong> <%= pharmacy.rating %>
-            </li>
-        <% }); %>
-    </ul>
-    <% } %>
+      <label for="address">Enter Address:</label>
+      <input
+        type="text"
+        id="address"
+        name="address"
+        placeholder="Enter your address"
+      />
+      <button type="submit">Find Pharmacies Nearby</button>
     </form>
-</body>
+    <ul>
+      <% if (data){ %> <% data.forEach(pharmacy => { %>
+      <li>
+        <strong>Name:</strong> <%= pharmacy.name %><br />
+        <strong>Address:</strong> <%= pharmacy.vicinity %><br />
+        <strong>Rating:</strong> <%= pharmacy.rating %>
+      </li>
+      <% }); %> <% } %>
+    </ul>
+  </body>
 </html>
