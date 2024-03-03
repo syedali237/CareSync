@@ -15,9 +15,9 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 import bcrypt from "bcrypt";
 // const User = require("./models/userSchema");
-import User from "./models/userSchema";
+import User from "./models/userSchema.js";
 // const Patient = require("./models/appointSchema");
-import Patient from "./models/appointSchema";
+import Patient from "./models/appointSchema.js";
 
 //Database Connextion
 mongoose.connect("mongodb://localhost:27017/User").then(() => {
