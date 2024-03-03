@@ -1,13 +1,18 @@
-const express = require("express");
+import express from "express";
+import path from "path";
+import fs from "fs";
+import mongoose from "mongoose";
+import { default as OpenAI } from 'openai';
+import dotenv from 'dotenv';
+import { log } from "console";
+import bodyParser from 'body-parser';
+import { fetchNearbyPlaces } from "./google-map/places.js";
+import { getLatLong } from "./google-map/getLatLon.js";
+
+dotenv.config();
+
 const app = express();
 const PORT = process.env.PORT || 4000;
-const path = require("path");
-const fs = require("fs");
-const { default: mongoose } = require("mongoose");
-const OpenAI = require('openai');
-require('dotenv').config();
-const { log } = require("console");
-const bodyParser = require('body-parser');
 
 //Database Connextion
 mongoose.connect("mongodb://localhost:27017/Diseases").then(() => {
@@ -35,47 +40,83 @@ let conversationHistory = [{role : 'assistant' , content: 'Ask me your doubts re
 // Function to generate text based on user input
 async function generateText(userInput) {
   try {
-
-    conversationHistory.push({ role: 'user', content: userInput });
-    // Create completions using OpenAI API
+    conversationHistory.push({ role: "user", content: userInput });
     const completion = await openai.chat.completions.create({
-    //   messages: [{ role: 'user', content: userInput }],
-    messages: conversationHistory,
-      model: 'gpt-3.5-turbo'
+      messages: conversationHistory,
+      model: "gpt-3.5-turbo",
     });
 
     const generatedText = completion.choices[0].message.content;
-
-    // Return the generated text from the API response
-    // return completion.choices[0].message.content;
-    conversationHistory.push({ role: 'assistant', content: generatedText });
-
+    conversationHistory.push({ role: "assistant", content: generatedText });
     return conversationHistory;
   } catch (error) {
-    console.error('Error generating text:', error);
-    return 'An error occurred while generating text.';
+    console.error("Error generating text:", error);
+    return "An error occurred while generating text.";
   }
 }
 
-app.get('/chatbot' , (req,res) => {
-  res.render('chat', { generatedText : conversationHistory });
+app.get('/findHospitals' , (req,res) => {
+  res.render('hospitals' , {data : null});
+})
+
+app.get('/findPharmacy' , (req,res) => {
+  res.render('pharmacy' , {data : null});
+})
+
+app.post('/hospitalsNearby' , async (req, res) => {
+  try {
+      const address = req.body.address;
+      const location = await getLatLong(address);
+      
+      if (location) {
+          const places = await fetchNearbyPlaces(`${location.latitude},${location.longitude}`, 'hospital');
+          res.render("hospitals", { data: places });
+      } else {
+          console.log("Failed to fetch location information");
+          res.status(500).send("Failed to fetch location information");
+      }
+  } catch (error) {
+      console.error('Error:', error);
+      res.status(500).send('Internal Server Error');
+  }
 });
 
-app.post('/messages' , async (req,res) => {
+app.post('/pharmaciesNearby', async (req, res) => {
+  try {
+      const address = req.body.address;
+      const location = await getLatLong(address);
+      
+      if (location) {
+          const places = await fetchNearbyPlaces(`${location.latitude},${location.longitude}`, 'pharmacy');
+          res.render("pharmacy", { data: places });
+      } else {
+          console.log("Failed to fetch location information");
+          res.status(500).send("Failed to fetch location information");
+      }
+  } catch (error) {
+      console.error('Error:', error);
+      res.status(500).send('Internal Server Error');
+  }
+});
+
+app.get("/chatbot", (req, res) => {
+  res.render("chat", { generatedText: conversationHistory });
+});
+
+app.post("/messages", async (req, res) => {
   try {
     // Get user input from the request body
-    // const { content } = req.body;
-
-    // Pass user input to the generateText function
     const generatedText = await generateText(req.body.content);
 
     // Return the generated text as the response
-    res.render('chat', { generatedText });
+    res.render("chat", { generatedText });
   } catch (error) {
-    console.error('Error handling message:', error);
-    res.status(500).json({ error: 'An error occurred while handling the message.' });
+    console.error("Error handling message:", error);
+    res
+      .status(500)
+      .json({ error: "An error occurred while handling the message." });
   }
-})
+});
 
 
 // In your Express route handler for displaying the result
