@@ -1,0 +1,85 @@
+<!-- appointment.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Appointments</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+      .appointment {
+        margin-bottom: 20px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: #f9f9f9;
+      }
+
+      .appointment h2 {
+        margin-bottom: 5px;
+        font-size: 20px;
+        color: #555;
+      }
+
+      .appointment p {
+        margin: 0;
+        font-size: 16px;
+        color: #777;
+      }
+
+      /* Responsive styles */
+      @media screen and (max-width: 600px) {
+        .container {
+          padding: 10px;
+        }
+
+        .appointment {
+          padding: 8px;
+        }
+
+        .appointment h2 {
+          font-size: 18px;
+        }
+
+        .appointment p {
+          font-size: 14px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>My Appointments</h1>
+      <% appointments.forEach(appointment => { %>
+      <div class="appointment">
+        <h2><%= appointment.name %></h2>
+        <p>Email: <%= appointment.email %></p>
+        <p>Phone No: <%= appointment.phone_no %></p>
+        <p>Date: <%= appointment.date %></p>
+      </div>
+      <% }) %>
+    </div>
+  </body>
+</html>

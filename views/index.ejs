@@ -3,31 +3,40 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>amuMED</title>
+    <title>CareSync</title>
     <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
-    integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
-    crossorigin="anonymous"
-  />
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+      integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <nav>
       <div class="left">
-        <!-- <img src="images/leaf.png" alt="" srcset="" /> -->
+        <img src="images/leaf.png" alt="" srcset="" />
         <h1><i class="fa-solid fa-square-h"></i><i>CareSync</i></h1>
       </div>
       <div class="right">
         <ul>
           <li><a href="">Home</a></li>
-          <li><a href="">About</a></li>
+          <li><a href="#about">About</a></li>
           <li><a href="">Contact us</a></li>
           <li>
-            <form action="/disease/detect" method="get"> <button type="submit">Disease Detector</button></form>
+            <form action="/disease/detect" method="get">
+              <button type="submit">Disease Detector</button>
+            </form>
           </li>
           <li>
-            <form action="/signup/user" method="post"><button type="submit">Registration</button></form>
+            <form action="/appoint" method="get">
+              <button type="submit">My Appointments</button>
+            </form>
+          </li>
+          <li>
+            <form action="/signup/user" method="post">
+              <button type="submit">Registration</button>
+            </form>
           </li>
           <li>
             <form action="/chatbot" method="get"><button type="submit">ChatBot</button></form>
@@ -45,60 +54,117 @@
       </div>
     </nav>
     <div class="bottom"></div>
-
     <div class="hero">
-      
-      <div class="text_hero"><h1>Welcome to CareSync</h1>
-        <h3>Where Convenience Meets Care. Take control of your health with our integrated tools, ensuring your wellness is always in sync."</h3>
-      <button id="hero_button">Appoint Us</button></div>
-       
-    </div>
-    <div class="about">
-        
-        <div class="text1">
-            <h2>About Us</h2>
-
-            <p>Welcome to <span>amuMED</span>, your trusted companion in healthcare solutions. At <span>amuMED</span>, we are dedicated to revolutionizing the way you approach healthcare, providing innovative tools to facilitate doctor appointments and empowering you with cutting-edge disease detection features.</p>
+      <div class="hero2">
+        <div class="text_hero">
+          <h1>Welcome to <i style="color: rgb(141, 237, 242)">CareSync</i></h1>
+          <h3>
+            Where Convenience Meets Care. Take control of your health with our
+            integrated tools, ensuring your wellness is always in sync."
+          </h3>
+          <a href="#app"><button id="hero_button">Appoint Us</button></a>
         </div>
-        <div class="img">
-            <img src="images/live.gif" alt="" srcset="">
-        </div>
-        <div class="text2">
-            <h2>Our Mission</h2>
-            <p>At <span>amuMED</span>, our mission is to make healthcare accessible, efficient, and personalized for everyone. We strive to bridge the gap between patients and healthcare providers, ensuring seamless communication and exceptional care.Join the <span>amuMED</span> community today and take control of your healthcare journey</p>
-        </div>
-    </div>
-    <div class="appointment">
-      <div class="hero1"><h1 id="aph">APPOINTMENT <span><i>NOW</i></span></h1>
       </div>
-    <div></div>
-      <div class="signup">
-        
-    <form action="/user/signup" method="post" enctype="multipart/form-data">
-      <h1>Make Appointment</h1>
-      <input type="text" placeholder="Enter Your Name" />
-      <input type="email" placeholder="Enter Your Email" />
-      <input type="number" placeholder="Enter Your Phone No." />
-      <input type="text" placeholder=" dd/mm/yyyy" />
-      <button>Appoint Now</button>
-  </div>
-    </form>
     </div>
-    <!-- <footer>
-      <div class="col1">
-        <ul>
-          <li><a href="">Home</a></li>
-          <li><a href="">About</a></li>
-          <li><a href="">Contact us</a></li>
-          <li>
-            <form action="/disease/detect" method="post"> <button type="submit">Disease Detector</button></form>
-          </li>
-          <li>
-            <form action="/signup/user" method="post"><button type="submit">Registration</button></form>
-          </li>
-        </ul>
+    <div id="about" class="about">
+      <div class="text1">
+        <h2>About Us</h2>
+        <p>
+          Welcome to <span>CareSync</span>, your trusted companion in healthcare
+          solutions. At <span>CareSync</span>, we are dedicated to
+          revolutionizing the way you approach healthcare, providing innovative
+          tools to facilitate doctor appointments and empowering you with
+          cutting-edge disease detection features.
+        </p>
       </div>
-  
-    </footer> -->
+      <div class="img">
+        <img src="images/live.gif" alt="" srcset="" />
+      </div>
+      <div class="text2">
+        <h2>Our Mission</h2>
+        <p>
+          At <span>CareSync</span>, our mission is to make healthcare
+          accessible, efficient, and personalized for everyone. We strive to
+          bridge the gap between patients and healthcare providers, ensuring
+          seamless communication and exceptional care. Join the
+          <span>CareSync</span> community today and take control of your
+          healthcare journey
+        </p>
+      </div>
+    </div>
+    <div id="app" class="appointment">
+      <div class="hero1">
+        <h1 id="aph">
+          APPOINTMENT <span><i>NOW</i></span>
+        </h1>
+      </div>
+      <div class="outbox">
+        <div class="box_img"></div>
+        <div class="signup">
+          <form action="/user/appointment" method="post">
+            <h1>Make Appointment</h1>
+            <input type="text" name="name" placeholder="Enter Your Name" />
+            <input type="email" name="email" placeholder="Enter Your Email" />
+            <input
+              type="number"
+              name="phone_no"
+              placeholder="Enter Your Phone No."
+            />
+            <input type="text" name="date" placeholder=" dd/mm/yyyy" />
+            <button>Appoint Now</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <h1><img src="" alt="" srcset="" /> CareSync</h1>
+      <div class="coll">
+        <div class="coloumn1">
+          <h2>5 keywords for health</h2>
+          <h3>Wellness</h3>
+          <h3>Fitness</h3>
+          <h3>Nutrition</h3>
+          <h3>Prevention</h3>
+          <h3>Healthcare</h3>
+        </div>
+        <div class="coloumn2">
+          <ul>
+            <h2 style="color: white">Useful Links</h2>
+            <li><a href="">Home</a></li>
+            <li><a href="">About</a></li>
+            <li><a href="">Contact US</a></li>
+            <li>
+              <button><a href="">Disease Detector</a></button>
+            </li>
+            <button>
+              <li>
+                <a href="">Registration</a>
+              </li>
+            </button>
+          </ul>
+        </div>
+        <div class="coloumn3">
+          <ul>
+            <h2 style="color: white">Social Media</h2>
+            <li>
+              <div class="i">
+                <img src="/images/insta.png" alt="" srcset="" />
+                <p>@CareSync</p>
+              </div>
+              <div class="f">
+                <img src="/images/fb.png" alt="" srcset="" />
+                <p>@CareSync</p>
+              </div>
+              <div class="t">
+                <img src="/images/twitter.png" alt="" srcset="" />
+                <p>@CareSync</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    <hr />
+    <div class="copy">&copyCareSync 2024 . All rights reserved</div>
   </body>
 </html>

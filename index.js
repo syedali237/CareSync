@@ -12,11 +12,16 @@ import { getLatLong } from "./google-map/getLatLon.js";
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 3000;
+import bcrypt from "bcrypt";
+// const User = require("./models/userSchema");
+import User from "./models/userSchema";
+// const Patient = require("./models/appointSchema");
+import Patient from "./models/appointSchema";
 
 //Database Connextion
-mongoose.connect("mongodb://localhost:27017/Diseases").then(() => {
-  console.log("Diseases Connected Successfully");
+mongoose.connect("mongodb://localhost:27017/User").then(() => {
+  console.log("User Connected Successfully");
 });
 
 const Dis = JSON.parse(fs.readFileSync("disease.json", "utf8"));
@@ -174,13 +179,93 @@ app.post("/found", async (req, res) => {
 
     // Render the EJS template and pass the found disease as a parameter
     res.render("result", { disease: foundDisease });
+
   } catch (error) {
     console.error("Error:", error.message);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
 
-app.get("/", (req, res) => {
+//Appointment
+app.post("/user/appointment", async (req, res) => {
+  try {
+    const { name, email, phone_no, date } = req.body;
+    console.log(req.body);
+    const appointment = new Patient({ name, email, phone_no, date });
+    await appointment.save();
+    console.log(appointment);
+
+    // Fetch all appointments from the database
+    const appointments = await Patient.find({});
+
+    // Render the appointment.ejs template with appointment data
+    res.render("appointment", { appointments });
+  } catch (error) {
+    console.error("Error occurred during appointment creation:", error);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+//See Appointments
+
+app.get("/appoint", async (req, res) => {
+  try {
+    const appointments = await Patient.find();
+    res.render("appointment", { appointments });
+  } catch (error) {
+    console.error("Error occurred while fetching appointments:", error);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+// app.get("/appoint",(req,res)=>{
+//   const appointments = Patient.find();
+//   console
+// })
+
+//Authentication
+
+app.get("/", async (req, res) => {
+  res.render("signup");
+});
+
+app.post("/signup/user", async (req, res) => {
+  try {
+    const { name, password, email } = req.body;
+    console.log(req.body);
+    const newUser = new User({ name, password, email });
+    await newUser.save(); // Ensure to await the save operation
+    res.redirect("/home");
+  } catch (error) {
+    console.error("Error occurred during signup:", error);
+    // Handle error appropriately, maybe redirect to an error page
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+app.get("/login", (req, res) => {
+  res.render("login.ejs"); // Assuming your login page is named login.ejs
+});
+
+app.get("/login", (req, res) => {
+  res.render("login.ejs"); // Assuming your login page is named login.ejs
+});
+app.post("/user/login", async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    const user = await User.findOne({ email, password });
+    if (!user) {
+      res.redirect("/");
+    } else {
+      res.redirect("/home");
+    }
+  } catch (error) {
+    console.error("Error:", error.message);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+app.get("/home", (req, res) => {
   res.render("index");
 });
 

@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-const userSchema = new Schema({
+const patientSchema = new Schema({
   // Define user schema fields
   name: {
     type: String,
@@ -10,14 +10,17 @@ const userSchema = new Schema({
   email: {
     type: String,
     required: true,
-    unique: true,
   },
-  password: {
+  phone_no: {
+    type: Number,
+    required: true,
+  },
+  date: {
     type: String,
     required: true,
   },
 });
 
-const User = mongoose.model("User", userSchema);
+const Patient = mongoose.model("Patient", patientSchema);
 
-module.exports = User;
+module.exports = Patient;

@@ -4,17 +4,22 @@
     box-sizing: border-box;
     @import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap');
 }
-
 nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 70px;
-    width: 100vw;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding-left: 1rem;
-    padding-left: 1rem;
-    color: white;
-    background-color: green;
+    padding-right: 1rem; /* Corrected the padding property */
+    color: rgb(0, 0, 0);
+    background-color: #B4D4FF; /* Added background color */
+    z-index: 1000; /* Added z-index to ensure the navigation bar stays on top */
 }
+
 
 .left {
     width: 30vw;
@@ -48,7 +53,8 @@ nav {
     text-decoration: none;
     font-size: 17px;
     font-weight: bold;
-    color: white;
+    color: rgb(0, 0, 0);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .right button {
@@ -56,11 +62,12 @@ nav {
     width: auto;
     font-size: 16px;
     background-color: rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
+    color: #B4D4FF;
     border-radius: 10px;
     font-weight: bold;
     padding-left: 5px;
     padding-right: 5px;
+    background-color: black;
 }
 
 .right ul li a:hover {
@@ -71,43 +78,64 @@ nav {
 
 .right button:hover {
     background-color: transparent;
-    border: 4px solid rgb(18, 196, 12);
-    color: rgb(255, 255, 255);
+    /* border: 4px solid rgb(18, 196, 12); */
+    color: rgb(0, 0, 0);
     transition: 0.2s;
+    cursor: pointer;
+    
 }
 
 .bottom {
-    height: 0.5rem;
+    height: 0.1rem;
     width: 100vw;
     background-color: black;
 }
-.hero{
-    height: 90vh;
-    width: 100vw;
-   text-align: center;
-   display: flex;
-   flex-direction: column;
-   justify-content: space-evenly;
-   align-items: center;
-    /* background-image: url(images/dprr.jpeg); */
-    background-image: url(https://media.istockphoto.com/id/1470505351/photo/portrait-of-a-smiling-doctor-holding-glasses-and-a-mobile-phone-at-the-office.webp?b=1&s=170667a&w=0&k=20&c=8CebFLF4PFnt9JYJznGhYoOQxcyHLVpTGVfkvEsZd2Q=);
+.hero {
+    height: 100vh;
+    width: 100%;
+    background-image: url(images/final.webp);
+    /* background-color: black; */
     background-size: cover;
     background-position: center;
-}
-.text_hero{
-    height: 40vh;
-    width: 60vw;
+    position: relative;
+    
+  }
+ 
+.hero1 {
+    height: 70vh;
+    width: 40vw;
+    border-radius: 50%;
+    background-color: #B4D4FF;
+    text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+   
+} 
+.hero2 {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  .text_hero {
+    width: 60vw;
+    color: #fff;
+    text-align: center;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
+  }
 .text_hero h1{
-    color: rgb(245, 249, 245);
+    color: rgb(250, 250, 250);
     font-size: 4rem;
+    font-family: sans-serif;
 }
 .text_hero h3{
     font-size: 23px;
+    color: #eff3f0;
+    font-weight: normal;
 }
 .text_hero button{
     height: 40px;
@@ -115,17 +143,20 @@ nav {
     padding-left: 1rem;
     padding-right: 1rem;
     font-size: 23px;
-    background-color: rgb(6, 58, 109);
-    color: white;
+    background-color: #B4D4FF;
+    color: rgb(0, 0, 0);
     border-radius: 7px;
     font-weight: bold;
     border: 1px solid white;
     margin-top: 2rem;
     
+    
 }
 .text_hero button:hover{
-    background-color: green;
+    background-color: #B4D4FF;
     color: white;
+    cursor: pointer;
+
 }
 
 .about{
@@ -152,16 +183,16 @@ nav {
 .text1,.text2{
     height:400px;
     width: 30vw;
-    border: 5px solid green;
+    border: 5px solid #B4D4FF;
     text-align: center;
     border-radius:13px;
 }
 .text1 h2,.text2 h2{
          font-size: 30px;
          font-weight: bold;
-         color: white;
-         background-color: green;
-         border-bottom: 5px solid green;
+         color: black;
+         background-color: #B4D4FF;
+         border-bottom: 5px solid #B4D4FF;
          font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 .text1 p,.text2 p{
@@ -172,30 +203,8 @@ nav {
 
 }
 span{
-    color: rgb(6, 194, 6);
+    color: rgb(21, 147, 159);
 }
-footer{
-    height: 500px;
-    width: 100vw;
-    background-color: black;
-}
-.col1{
-    height: 500px;
-    width: 100vw;
-  
-}
-.col1 ul{
-    height: 500px;
-    width: 30vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-}
-/* .col li{
-    
-} */
-
 .appointment{
     height:100vh;
     width: 100vw;
@@ -204,12 +213,14 @@ footer{
     justify-content: space-evenly;
     align-items: center;
     padding-top: 2rem;
+    background-color: #B4D4FF;
+    padding-bottom: 2rem;
 }
 
 .signup {
-    height: 70vh;
-    width: 80vw;
-    /* border: 6px solid green; */
+    height: 80vh;
+    width: 30vw;
+    /* border: 6px solid #B4D4FF; */
     background-color: #fff;
     border-radius: 15px;
     padding-top: 2rem;
@@ -220,17 +231,24 @@ footer{
     font-weight: bolder;
     margin-bottom: 1rem;
 }
- .hero1 {
-    height: 70vh;
-    width: 40vw;
-    border-radius: 50%;
-    background-color: aquamarine;
-    text-align: center;
+ 
+.outbox{
+    width: 100vw;
+    height: 100vh;
     display: flex;
+    justify-content: space-evenly;
     align-items: center;
-    justify-content: center;
-   
-} 
+    padding-top: 2rem;
+}
+.box_img{
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background-image: url(images/logo.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
 
 form {
     height: 60vh;
@@ -249,7 +267,7 @@ form {
     background-color: transparent;
     color: rgb(0, 0, 0);
     text-align: center;
-    border: 2px solid green;
+    border: 2px solid #B4D4FF;
     outline: none; 
     /*border-left: none;
     border-right: none;
@@ -264,16 +282,18 @@ form {
     font-size: 20px;
     font-weight: bold;
     font-family: sans-serif;
-    border: 2px solid green;
-    background-color: white;
+    border: 2px solid #B4D4FF;
+    background-color: rgb(255, 255, 255);
     padding-left: 1px;
     padding-right: 1rem;
     border-radius: 5rem;
     margin-top: 1rem;
 }
 .signup button:hover{
-    background-color: green;
-  color: white;
+    background-color: #B4D4FF;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+
 }
 #aph{
     font-size: 28px;
@@ -281,4 +301,330 @@ form {
 }
 .appointment  span{
     color: rgb(11, 118, 82);
+}
+
+footer{
+    height: 420px;
+    width: 100vw;
+    background-color: black;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+footer h1{
+    color: rgb(33, 173, 175);
+    font-size: 35px;
+    font-weight: bold;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin-right: 8rem;
+    margin-bottom: 3rem;
+}
+
+footer button{
+    height: 30px;
+    width: auto;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    background-color: #000000;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 5px;
+    box-shadow: 1px 2px gray;
+}
+footer ul{
+    height: 300px;
+    width: 20vw;
+    padding-left: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+}
+footer ul li{
+    list-style: none;
+}
+footer ul li a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+}
+footer ul li a:hover{
+    text-decoration: underline;
+    
+}
+footer button:hover{
+    text-decoration: none;
+    background-color: rgb(35, 29, 29);
+    cursor: pointer;
+
+    
+}
+
+.coll{
+    height: 350px;
+    width: 100vw;
+    display: flex;
+    justify-content: space-evenly;
+}
+.coloumn1{
+    height: 300px;
+    width: 20vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    color: white;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+.coloumn3{
+    height: 200px;
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-top: 4rem;
+}
+.coloumn3 img {
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+}
+.i,.f,.t{
+    display: flex;
+    color: white;
+    width: 300px;
+    justify-content: space-evenly;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+.coloumn3 ul li{
+    height: 200px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-top: 1rem;
+
+}
+.coloumn3 img:hover {
+    height: 30px;
+    width: 30px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.copy{
+    height: 50px;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: white;
+    font-weight: 500;
+    font-family: sans-serif;
+}
+footer h2{
+    text-decoration: underline;
+}
+footer h3:hover{
+    text-decoration: underline;
+
+}
+footer p:hover{
+    text-decoration: underline;
+
+}
+
+/* //Responsive */
+
+@media (max-width: 610px) {
+ 
+    nav{
+        height: 50px;
+        width: 100vw;
+    }
+   
+    nav .left img{
+        height: 30px;
+        width: 30px;
+
+    }
+    .left h1{
+        font-size: 18px;
+    }
+    .right ul{
+        display: none;
+    }
+    .hero{
+    }
+    .text_hero{
+        width: 90vw;
+    }
+.text_hero h1{
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+.text_hero h3{
+    font-size: 15px;
+    font-weight: 300;
+}
+.text_hero button{
+    font-size: 17px;
+    height: 30px;
+}
+.about{
+    flex-direction: column;
+    height:57rem;
+}
+.text1,.text2{
+    width: 80vw;
+    height: max-content;
+}
+.text1 p,.text2 p{
+    font-size: 16px;
+}
+.text1 h2,.text2 h2{
+    font-size: 18px;
+}
+.img{
+    height: 200px;
+    display: flex;
+    justify-content: center;
+}
+.img img{
+    height: 200px;
+    width: 200px;
+}
+.appointment{
+    height: max-content;
+    padding: 0;
+    width: 100vw;
+
+}
+.outbox{
+    flex-direction: column;
+    padding: 0;
+    justify-content: space-evenly;
+    height: max-content;
+    padding-bottom: 3rem;
+    
+}
+#aph{
+    font-size: 21px;
+}
+.hero1{
+    height: 20vh;
+    width: 50vw;
+    border-radius: 50%;
+    background-color: #B4D4FF;
+   
+}
+.box_img{
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+}
+
+.signup {
+    width: 80vw;
+    height:65vh;
+    padding-bottom: 0rem;
+}
+.signup form{
+height: 50vh;
+}
+.signup form h1{
+    font-size: 18px;
+}
+.signup label,.signup input{
+   height: 30px;
+   font-size: 15px;
+}
+.signup button{
+    font-size: 16px;
+    height: 30px;
+}
+footer{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    height: 80vh;
+}
+footer h1{
+    font-size: 21px;
+}
+footer ul li a{
+    font-size: 13px;
+}
+footer button{
+    height: 30px;
+    width: auto;
+    padding-left: 0rem;
+    padding-right: 0rem;
+    background-color: #000000;
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 5px;
+    box-shadow: 1px 2px gray;
+}
+.coloumn1{
+    width: 30vw;
+    text-align: center;
+}
+.coloumn1 h2{
+    font-size: 14px;
+}
+.coloumn1 h3{
+    font-size: 13px;
+}
+.coloumn3{
+    width: 33vw;
+    text-align: center;
+}
+.coloumn3 h2,.coloumn2 h2{
+    font-size: 14px;
+    width: max-content;
+}
+.coloumn3 div{
+    width: 30vw;
+}
+.i,.f,.t{
+    
+    width: 200px;
+    padding-right: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+   
+
+.coloumn3 img{
+    height: 25px;
+    width: 25px;
+}
+.coloumn3 p{
+    font-size: 13px;
+    margin-top: 4px;
+}
+.coloumn2{
+    width: 30vw;
+    text-align: center;
+   
+}
+.coloumn2 button{
+    width: max-content;
+}
+.copy{
+    height: 40px;
+    width: 100vw;
+    font-size: 14px;
+}
 }

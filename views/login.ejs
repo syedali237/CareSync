@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Home</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
     <style>
       body {
         margin: 0;
         padding: 0;
         font-family: Roboto, sans-serif;
         background: linear-gradient(120deg, #8e9eab, #eef2f3);
-        min-height: 100vh;
+        height: 100vh;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -23,11 +23,13 @@
         border-radius: 10px;
         padding: 40px;
         box-sizing: border-box;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
       }
 
       .center h1 {
         text-align: center;
         margin-bottom: 20px;
+        color: #333; /* Changed color to a darker shade */
       }
 
       .center form .txt_field {
@@ -43,6 +45,7 @@
         border-bottom: 2px solid #adadad;
         background: transparent;
         outline: none;
+        color: #333; /* Changed text color */
       }
 
       .center form .txt_field label {
@@ -60,20 +63,20 @@
         color: #2691d9;
       }
 
-      .center form input[type="Submit"] {
+      input[type="submit"] {
         width: 100%;
-        padding: 15px;
+        height: 50px;
         border: none;
         border-radius: 25px;
         font-size: 18px;
         font-weight: 700;
         cursor: pointer;
         background: #2691d9;
-        color: #e9f4fb;
-        transition: 0.5s;
+        color: #fff;
+        transition: background 0.3s, color 0.3s;
       }
 
-      .center form input[type="Submit"]:hover {
+      input[type="submit"]:hover {
         background: #0b4baf;
       }
 
@@ -96,12 +99,8 @@
   </head>
   <body>
     <div class="center">
-      <h1>Register</h1>
-      <form action="/signup/user" method="POST">
-        <div class="txt_field">
-          <input type="text" name="name" required />
-          <label>Name</label>
-        </div>
+      <h1>Login</h1>
+      <form action="/user/login" method="POST">
         <div class="txt_field">
           <input type="email" name="email" required />
           <label>Email</label>
@@ -110,12 +109,11 @@
           <input type="password" name="password" required />
           <label>Password</label>
         </div>
-
-        <input name="submit" type="Submit" value="Sign Up" />
-        <div class="signup_link">
-          Have an Account? <a href="/login">Login Here</a>
-        </div>
+        <input name="submit" type="submit" value="Login" />
       </form>
+      <div class="signup_link">
+        Don't have an account? <a href="/">Sign Up Here</a>
+      </div>
     </div>
   </body>
 </html>
